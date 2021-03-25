@@ -22,5 +22,5 @@
     setTimeout(function(){
         fnAddButtons();
         fnDefineEvents();
-    }, 1000);
+    }, 2000);
 })();

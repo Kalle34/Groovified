@@ -2,7 +2,7 @@
     chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         if(message == "start") {
             var tabId;
-            chrome.tabs.create({"url": "here your discord #music link", "active": true},function(newTab) {
+            chrome.tabs.create({"url": "https://discord.com/channels/690511313633280021/799228826935623700", "active": false},function(newTab) {
                 tabId = newTab.id;
             });
             chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
