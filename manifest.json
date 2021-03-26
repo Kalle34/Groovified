@@ -1,12 +1,13 @@
 {
   "name": "Easy Spotify Extension - ESE",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Adds a button on Spotify playlist website and plays music in your discord channel on a button click!",
   "manifest_version": 2,
   "permissions": [
         "storage",
         "*://open.spotify.com/playlist/*",
-        "*://discord.com/channels/*"
+        "*://discord.com/channels/*",
+        "*://www.youtube.com/watch?v=*"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -16,7 +17,7 @@
     {
       "js" : ["init.js"],
       "css": ["styles.css"],
-      "matches" : ["*://open.spotify.com/playlist/*", "*://discord.com/channels/*"]
+      "matches" : ["*://open.spotify.com/playlist/*", "*://discord.com/channels/*", "*://www.youtube.com/watch?v=*"]
     }
   ],
   "page_action": {

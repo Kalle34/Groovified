@@ -10,3 +10,13 @@
 #play-extension-btn:hover {
     padding: 11px 15px;
 }
+
+#play-extension-ytbtn {
+    background-color: #C80012;
+    padding: 10px 14px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 0px solid #C80012;
+    color: white;
+    margin-left: 25px;
+}
