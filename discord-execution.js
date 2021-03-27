@@ -1,13 +1,15 @@
+var discordurl = localStorage.getItem("discordurl")
+api = discordurl.substring(discordurl.length - 18)
 var link = localStorage.getItem("link")
 token = JSON.parse(localStorage.getItem("token"))
 if(link == "leave") {
 setTimeout(function(){
-    fetch("https://discord.com/api/v8/channels/799228826935623700/messages", {
+    fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
         "headers": {
             "authorization": token,
             "content-type": "application/json",
           },
-          "referrer": "https://discord.com/channels/690511313633280021/799228826935623700",
+          "referrer": discordurl,
           "referrerPolicy": "strict-origin-when-cross-origin",
           "body": `{"content":"-leave"}`,
           "method": "POST",
@@ -20,12 +22,12 @@ setTimeout(function(){
     }, 500);
 } else if(link == "skip") {
     setTimeout(function(){
-    fetch("https://discord.com/api/v8/channels/799228826935623700/messages", {
+    fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
         "headers": {
             "authorization": token,
             "content-type": "application/json",
           },
-          "referrer": "https://discord.com/channels/690511313633280021/799228826935623700",
+          "referrer": discordurl,
           "referrerPolicy": "strict-origin-when-cross-origin",
           "body": `{"content":"-skip"}`,
           "method": "POST",
@@ -36,16 +38,16 @@ setTimeout(function(){
             window.close();
         }, 1000);
     }, 500);
-} else {
+} else if(link == "*://www.youtube.com/watch?v=*" || "*://open.spotify.com/playlist/*") {
     var content = "-p " + link
     content = JSON.stringify(content)
     setTimeout(function(){
-        fetch("https://discord.com/api/v8/channels/799228826935623700/messages", {
+        fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
           "headers": {
             "authorization": token,
             "content-type": "application/json",
           },
-          "referrer": "https://discord.com/channels/690511313633280021/799228826935623700",
+          "referrer": discordurl,
           "referrerPolicy": "strict-origin-when-cross-origin",
           "body": `{"content":${content}}`,
           "method": "POST",
