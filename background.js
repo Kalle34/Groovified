@@ -34,12 +34,21 @@
                     chrome.tabs.executeScript(tabId, { code: `localStorage.setItem("link", ${message})` });
                     chrome.tabs.executeScript(tabId, { file: `discord-execution.js` });
                 }, 500);
-            }
+
+            } else if(message == "back") {
+                setTimeout(function(){
+                    message = JSON.stringify(message);
+                    chrome.tabs.executeScript(tabId, { code: `localStorage.setItem("discordurl", ${discordurl})` });
+                    chrome.tabs.executeScript(tabId, { code: `localStorage.setItem("link", ${message})` });
+                    chrome.tabs.executeScript(tabId, { file: `discord-execution.js` });
+                }, 500);
+
         } else {
             url = message.replace("popup.", "");
             chrome.storage.local.set({"discordurl": url}, function() {
                 alert("Successfully set up the extension to: " + url)
             });
         }
-    });
+    }
+});
 })();

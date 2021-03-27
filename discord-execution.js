@@ -2,6 +2,7 @@ var discordurl = localStorage.getItem("discordurl")
 api = discordurl.substring(discordurl.length - 18)
 var link = localStorage.getItem("link")
 token = JSON.parse(localStorage.getItem("token"))
+
 if(link == "leave") {
 setTimeout(function(){
     fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
@@ -20,6 +21,7 @@ setTimeout(function(){
             window.close();
         }, 1000);
     }, 500);
+
 } else if(link == "skip") {
     setTimeout(function(){
     fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
@@ -38,6 +40,26 @@ setTimeout(function(){
             window.close();
         }, 1000);
     }, 500);
+
+} else if(link == "back") {
+    setTimeout(function(){
+    fetch("https://discord.com/api/v8/channels/" + api + "/messages", {
+        "headers": {
+            "authorization": token,
+            "content-type": "application/json",
+          },
+          "referrer": discordurl,
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "body": `{"content":"-back"}`,
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "include"
+        });
+        setTimeout(function(){
+            window.close();
+        }, 1000);
+    }, 500);
+
 } else if(link == "*://www.youtube.com/watch?v=*" || "*://open.spotify.com/playlist/*") {
     var content = "-p " + link
     content = JSON.stringify(content)

@@ -37,6 +37,19 @@
     padding: 11px 15px;
 }
 
+#play-extension-btn-back {
+    background-color: #2EBA5B;
+    padding: 10px 14px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 2px solid #2EBA5B;
+    color: white;
+}
+
+#play-extension-btn-back:hover {
+    padding: 11px 15px;
+}
+
 #play-extension-ytbtn {
     background-color: #C80012;
     padding: 10px 14px;
@@ -64,5 +77,15 @@
     border-radius: 2px;
     border: 0px solid #C80012;
     color: white;
-    margin-left: 20px;
+    margin-left: 25px;
+}
+
+#play-extension-ytbtn-back {
+    background-color: #C80012;
+    padding: 10px 14px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 0px solid #C80012;
+    color: white;
+    margin-left: 25px;
 }
