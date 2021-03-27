@@ -1,0 +1,47 @@
+html {
+    background-color: #36393F;
+}
+
+body {
+    color: #8E9297;
+}
+
+a:link {
+    color: #8E9297;
+}
+
+a:visited {
+    color: #8E9297;
+}
+
+hr {
+    border-color: #8E9297;
+}
+
+#setupbutton {
+    background-color: #2A2D30;
+    padding: 5px 14px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 0px solid #373C3F;
+    color: #8E9297;
+}
+
+#setupbutton:hover {
+    background-color: #2E3335;
+}
+
+input[type=text] {
+    border: none;
+    width: 400px;
+    background-color: #40444B;
+    color: #8E9297;
+    margin: 1px;
+    padding: 4px;
+}
+
+div { display: table; margin: 4px; padding: 1px; }
+
+div.t {
+    display: table-cell;
+}
