@@ -12,7 +12,14 @@
                 chrome.tabs.executeScript(tabId, { file: `discord-execution.js` });
             }, 500);
 
-        } else if(message == "leave"){
+        } else if(message == "leave") {
+            setTimeout(function(){
+                message = JSON.stringify(message);
+                chrome.tabs.executeScript(tabId, { code: `localStorage.setItem("link", ${message})` });
+                chrome.tabs.executeScript(tabId, { file: `discord-execution.js` });
+            }, 500);
+
+        } else if(message == "skip") {
             setTimeout(function(){
                 message = JSON.stringify(message);
                 chrome.tabs.executeScript(tabId, { code: `localStorage.setItem("link", ${message})` });
