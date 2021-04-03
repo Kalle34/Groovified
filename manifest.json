@@ -1,13 +1,15 @@
 {
-  "name": "Easy Spotify Extension - ESE",
-  "version": "1.6",
+  "name": "Groovified",
+  "version": "1.7",
   "description": "Adds a button on Spotify playlist website and plays music in your discord channel on a button click!",
   "manifest_version": 2,
   "permissions": [
+        "tabs",
         "storage",
-        "*://open.spotify.com/playlist/*",
+        "notifications",
+        "*://open.spotify.com/*",
         "*://discord.com/channels/*",
-        "*://www.youtube.com/watch?v=*"
+        "*://www.youtube.com/*"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -17,23 +19,23 @@
     {
       "js" : ["init.js"],
       "css": ["styles.css"],
-      "matches" : ["*://open.spotify.com/playlist/*", "*://discord.com/channels/*", "*://www.youtube.com/watch?v=*"]
+      "matches" : ["*://open.spotify.com/*", "*://discord.com/channels/*", "*://www.youtube.com/*"]
     }
   ],
   "browser_action": {
     "default_icon": {
-      "16": "icons/ese16.png",
-      "32": "icons/ese32.png",
-      "48": "icons/ese48.png",
-      "128": "icons/ese128.png"
+      "16": "icons/groovified16.png",
+      "32": "icons/groovified32.png",
+      "48": "icons/groovified48.png",
+      "128": "icons/groovified128.png"
     },
     "default_popup": "popup.html",
-    "default_title": "Settings"
+    "default_title": "Setup page"
   },
   "icons": {
-    "16": "icons/ese16.png",
-    "32": "icons/ese32.png",
-    "48": "icons/ese48.png",
-    "128": "icons/ese128.png"
+    "16": "icons/groovified16.png",
+    "32": "icons/groovified32.png",
+    "48": "icons/groovified48.png",
+    "128": "icons/groovified128.png"
   }
 }
