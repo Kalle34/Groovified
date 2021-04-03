@@ -20,7 +20,7 @@ hr {
 
 #setupbutton {
     background-color: #2A2D30;
-    padding: 5px 14px;
+    padding: 5px 20px;
     font-size: 12px;
     border-radius: 2px;
     border: 0px solid #373C3F;
@@ -31,13 +31,14 @@ hr {
     background-color: #2E3335;
 }
 
-input[type=text] {
+input {
     border: none;
     width: 400px;
     background-color: #40444B;
     color: #8E9297;
     margin: 1px;
     padding: 4px;
+    outline: 0px;
 }
 
 div { display: table; margin: 4px; padding: 1px; }
