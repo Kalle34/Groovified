@@ -60,7 +60,7 @@ setTimeout(function(){
         }, 1000);
     }, 500);
 
-} else if(link == "*://www.youtube.com/watch?v=*" || "*://open.spotify.com/playlist/*") {
+} else {
     var content = "-p " + link
     content = JSON.stringify(content)
     setTimeout(function(){
