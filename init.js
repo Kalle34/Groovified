@@ -1,6 +1,6 @@
 (function () {
   function fnAddButtons() {
-    if(window.location.hostname.toString() == "open.spotify.com"){
+    if(window.location.pathname != "/" && window.location.host == "open.spotify.com"){
       var btn = document.createElement("button");
       var btnleave = document.createElement("button");
       var btnskip = document.createElement("button");
@@ -21,7 +21,7 @@
       document.querySelector('._95e9f2bdf9c64702a6123c2d6de8076b-scss').appendChild(btnback);
       document.querySelector('._95e9f2bdf9c64702a6123c2d6de8076b-scss').appendChild(btnskip);
       document.querySelector('._95e9f2bdf9c64702a6123c2d6de8076b-scss').appendChild(btnleave);
-    } else if(window.location.hostname.toString() == "www.youtube.com"){
+    } else if(!window.location.search == "" && window.location.host == "www.youtube.com") {
         var ytbtn = document.createElement("button");
         var ytbtnleave = document.createElement("button");
         var ytbtnskip = document.createElement("button");
@@ -38,15 +38,15 @@
         ytbtnback.textContent = "Back";
         ytbtnback.id = "play-extension-ytbtn-back";
         ytbtnback.type = "play-extension-back";
-        document.querySelector('.title').appendChild(ytbtn);
-        document.querySelector('.title').appendChild(ytbtnback);
-        document.querySelector('.title').appendChild(ytbtnskip);
-        document.querySelector('.title').appendChild(ytbtnleave);
+        document.querySelector('.title.style-scope.ytd-video-primary-info-renderer').appendChild(ytbtn);
+        document.querySelector('.title.style-scope.ytd-video-primary-info-renderer').appendChild(ytbtnback);
+        document.querySelector('.title.style-scope.ytd-video-primary-info-renderer').appendChild(ytbtnskip);
+        document.querySelector('.title.style-scope.ytd-video-primary-info-renderer').appendChild(ytbtnleave);
     }
   }
 
   function fnDefineEvents() {
-      if(window.location.hostname.toString() == "open.spotify.com"){
+      if(window.location.pathname != "/" && window.location.host == "open.spotify.com"){
         document.getElementById("play-extension-btn").addEventListener("click", function (event) {
             link = window.location.href
             chrome.runtime.sendMessage(link);
@@ -64,7 +64,7 @@
             chrome.runtime.sendMessage("back");
         });
 
-      } else if(window.location.hostname.toString() == "www.youtube.com"){
+      } else if(!window.location.search == "" && window.location.host == "www.youtube.com"){
         document.getElementById("play-extension-ytbtn").addEventListener("click", function (event) {
             link = window.location.href
             chrome.runtime.sendMessage(link);
@@ -84,8 +84,23 @@
       }
   }
 
-    setTimeout(function(){
-        fnAddButtons();
-        fnDefineEvents();
-    }, 1500);
+    window.addEventListener('yt-page-data-updated', function () {
+        console.log("url changed")
+        setTimeout(function(){
+            if(!document.getElementById("play-extension-ytbtn") && window.location.host == "www.youtube.com") {
+                fnAddButtons();
+                fnDefineEvents();
+            }
+        }, 1500);
+    });
+
+    window.addEventListener('load', function () {
+        console.log("load")
+        setTimeout(function(){
+            if(!document.getElementById("play-extension-ytbtn") || !document.getElementById("play-extension-btn")) {
+                fnAddButtons();
+                fnDefineEvents();
+            }
+        }, 1500);
+    });
 })();
